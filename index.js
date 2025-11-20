@@ -51,7 +51,7 @@ function clickAndReturn(attempts = 0) {
         console.log(`📌 Clicking an offer... (${offersLeft} remaining)`);
         console.log(`⏳ Estimated time left: ${minTimeSec}-${maxTimeSec} seconds`);
 
-        buttons[0].click();
+        buttons[0].dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
 
         let backDelay = Math.floor(Math.random() * (delayTime / 2)) + delayTime;
         setTimeout(() => {
